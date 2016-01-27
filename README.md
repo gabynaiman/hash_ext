@@ -26,7 +26,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Available classes
+
+```ruby
+Hash::Accessible
+Hash::Builder
+Hash::Indifferent
+Hash::Sorted
+```
 
 ## Development
 
