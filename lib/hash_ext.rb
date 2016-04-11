@@ -1,6 +1,8 @@
-require 'hash_ext/version'
+require 'forwardable'
 
-require 'hash_ext/builder'
-require 'hash_ext/indifferent'
-require 'hash_ext/accessible'
-require 'hash_ext/sorted'
+require_relative 'hash_ext/version'
+
+require_relative 'hash_ext/builder'
+require_relative 'hash_ext/indifferent'
+require_relative 'hash_ext/accessible'
+require_relative 'hash_ext/sorted'
