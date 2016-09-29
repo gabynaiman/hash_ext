@@ -26,14 +26,70 @@ Or install it yourself as:
 
 ## Usage
 
-### Available classes
+### Accessible
 
 ```ruby
-Hash::Accessible
-Hash::Builder
-Hash::Normalized
-Hash::Indifferent
-Hash::Sorted
+hash = Hash::Accessible.new key_1: 1, key_2: { key_3: 3 }
+
+hash[:key_1] # => 1
+hash.key_1   # => 1
+
+hash[:key_2] # => {key_3: 3}
+hash.key_2   # => {key_3: 3}
+
+hash[:key_2][:key_3] # => 3
+hash.key_2.key_3     # => 3 
+```
+
+### Builder
+
+```ruby
+hash = Hash::Builder.build do |h|
+  h.key_1 1
+  h.key_2 do
+    h.key_3 3
+  end
+end
+
+hash # => {key_1: 1, key_2: {key_3: 3}}
+```
+
+### Normalized
+
+```ruby
+hash = Hash::Normalized.new { |key| key.upcase }
+
+hash['key_1'] = 1
+
+hash['key_1'] # => 1
+hash['KEY_1'] # => 1
+```
+
+### Indifferent
+
+```ruby
+hash = Hash::Indifferent.new
+
+hash['key_1'] = 1
+hash[:key_2]  = 2
+
+hash['key_1'] # => 1
+hash[:key_1]  # => 1
+
+hash['key_2'] # => 2
+hash[:key_2]  # => 2
+```
+
+### Sorted
+
+```ruby
+hash = Hash::Sorted.asc { |k,v| k.to_s }
+
+hash[:c] = 1
+hash[:b] = 2
+hash[:a] = 3
+
+hash.keys # => [:a, :b, :c]
 ```
 
 ## Development
