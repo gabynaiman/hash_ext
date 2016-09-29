@@ -31,6 +31,7 @@ Or install it yourself as:
 ```ruby
 Hash::Accessible
 Hash::Builder
+Hash::Normalized
 Hash::Indifferent
 Hash::Sorted
 ```
