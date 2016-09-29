@@ -1,10 +1,10 @@
 # HashExt
 
-[![Gem Version](https://badge.fury.io/rb/hash_ext.png)](https://rubygems.org/gems/hash_ext)
-[![Build Status](https://travis-ci.org/gabynaiman/hash_ext.png?branch=master)](https://travis-ci.org/gabynaiman/hash_ext)
-[![Coverage Status](https://coveralls.io/repos/gabynaiman/hash_ext/badge.png?branch=master)](https://coveralls.io/r/gabynaiman/hash_ext?branch=master)
-[![Code Climate](https://codeclimate.com/github/gabynaiman/hash_ext.png)](https://codeclimate.com/github/gabynaiman/hash_ext)
-[![Dependency Status](https://gemnasium.com/gabynaiman/hash_ext.png)](https://gemnasium.com/gabynaiman/hash_ext)
+[![Gem Version](https://badge.fury.io/rb/hash_ext.svg)](https://rubygems.org/gems/hash_ext)
+[![Build Status](https://travis-ci.org/gabynaiman/hash_ext.svg?branch=master)](https://travis-ci.org/gabynaiman/hash_ext)
+[![Coverage Status](https://coveralls.io/repos/gabynaiman/hash_ext/badge.svg?branch=master)](https://coveralls.io/r/gabynaiman/hash_ext?branch=master)
+[![Code Climate](https://codeclimate.com/github/gabynaiman/hash_ext.svg)](https://codeclimate.com/github/gabynaiman/hash_ext)
+[![Dependency Status](https://gemnasium.com/gabynaiman/hash_ext.svg)](https://gemnasium.com/gabynaiman/hash_ext)
 
 Hash extensions without monkey patching
 
