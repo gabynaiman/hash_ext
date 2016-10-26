@@ -1,24 +1,41 @@
 class Hash
   class Accessible < Indifferent
 
+    def self.make_accessible(value)
+      if value.kind_of? Hash
+        self.new value
+      elsif value.kind_of? ::Array
+        Array.new value
+      else
+        value
+      end
+    end
+
+    class Array < SimpleDelegator
+
+      def initialize(array)
+        super array.map { |v| Accessible.make_accessible v }
+      end
+
+      def push(value)
+        super Accessible.make_accessible(value)
+      end
+      alias_method :<<, :push
+
+    end
+
+    def []=(key, value)
+      super key, self.class.make_accessible(value)
+    end
+
     private
 
     def method_missing(method, *args, &block)
       if method.to_s.end_with? '='
         key = method[0..-2]
-        self[key] = make_accessible args[0]
+        self[key] = args[0]
       else
-        make_accessible self[method]
-      end
-    end
-
-    def make_accessible(value)
-      if value.kind_of? Hash
-        self.class.new value
-      elsif value.kind_of? Array
-        value.map { |v| make_accessible v }
-      else
-        value
+        self[method]
       end
     end
 
