@@ -27,16 +27,17 @@ class Hash
       super normalize_key(key)
     end
 
-    def update(hash)
+    def update(hash, &block)
       hash.each do |key, value|
-        store normalize_key(key), normalize_value(value)
+        new_val = block && key?(key) ? block.call(key, self[key], value) : value
+        store normalize_key(key), normalize_value(new_val)
       end
       self
     end
     alias_method :merge!, :update
 
-    def merge(hash)
-      dup.update hash
+    def merge(hash, &block)
+      dup.update hash, &block
     end
 
     def key?(key)
