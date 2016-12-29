@@ -60,7 +60,7 @@ describe Hash::Indifferent do
     hash.key?(:c).must_equal false
     hash.key?('c').must_equal false
     value = hash.delete :c
-    value.must_equal nil
+    value.must_be_nil
   end
 
   it 'Merge' do
