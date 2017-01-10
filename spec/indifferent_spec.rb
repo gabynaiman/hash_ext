@@ -92,4 +92,13 @@ describe Hash::Indifferent do
     hash['b'][0]['hello'].must_equal :world
   end
 
+  it 'Neested to_h' do
+    indifferent_hash = Hash::Indifferent.new({'x' => {'y' => ['z', { 'a' => 1 }]}})
+    hash = indifferent_hash.to_h
+
+    hash.instance_of?(Hash).must_equal true
+    hash[:x].instance_of?(Hash).must_equal true
+    hash[:x][:y][1].instance_of?(Hash).must_equal true
+  end
+
 end

@@ -30,7 +30,7 @@ class Hash
     def update(hash, &block)
       hash.each do |key, value|
         new_val = block && key?(key) ? block.call(key, self[key], value) : value
-        store normalize_key(key), normalize_value(new_val)
+        store key, new_val
       end
       self
     end
@@ -51,6 +51,12 @@ class Hash
       super normalize_key(key), *args, &block
     end
 
+    def to_h
+      each_with_object({}) do |(key, value), hash|
+        hash[key] = value_to_h value
+      end
+    end
+
     private
 
     def normalize_key(key)
@@ -62,6 +68,16 @@ class Hash
         self.class.new value
       elsif value.kind_of? Array
         value.map { |v| normalize_value v }
+      else
+        value
+      end
+    end
+
+    def value_to_h(value)
+      if value.kind_of? Hash
+        value.to_h
+      elsif value.kind_of? Array
+        value.map { |v| value_to_h v }
       else
         value
       end
