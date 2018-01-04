@@ -5,7 +5,7 @@ class Hash
       if value.kind_of? Hash
         self.new value
       elsif value.kind_of? ::Array
-        Array.new value
+        Accessible::Array.new value
       else
         value
       end
@@ -25,7 +25,7 @@ class Hash
     end
 
     def []=(key, value)
-      super key, self.class.make_accessible(value)
+      super key, Accessible.make_accessible(value)
     end
 
     private
