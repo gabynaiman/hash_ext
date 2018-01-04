@@ -93,7 +93,7 @@ describe Hash::Indifferent do
   end
 
   it 'Neested to_h' do
-    indifferent_hash = Hash::Indifferent.new({'x' => {'y' => ['z', { 'a' => 1 }]}})
+    indifferent_hash = Hash::Indifferent.new 'x' => {'y' => ['z', { 'a' => 1 }]}
     hash = indifferent_hash.to_h
 
     hash.instance_of?(Hash).must_equal true

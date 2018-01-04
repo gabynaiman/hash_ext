@@ -31,8 +31,8 @@ describe Hash::Accessible do
   it 'Nested hash post initialization' do
     hash = Hash::Accessible.new
 
-    hash.a = Hash.new
-    hash.a.must_equal({})
+    hash.a = {}
+    hash.a.must_equal Hash.new
 
     hash.a.b = 1 
     hash.a.c = 2
@@ -40,9 +40,8 @@ describe Hash::Accessible do
 
     hash.a.b.must_equal 1
     hash.a.c.must_equal 2
-    hash.d.must_equal({})
+    hash.d.must_equal Hash.new
     hash[:a][:b].must_equal 1
-
   end
 
   it 'Nested array post initialization' do 
@@ -55,7 +54,6 @@ describe Hash::Accessible do
     hash.a << 3
     hash.a.size.must_equal 1
     hash.a[0].must_equal 3
-
   end
 
 end
