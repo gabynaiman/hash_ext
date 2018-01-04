@@ -1,3 +1,15 @@
 class Hash
-  Indifferent = Normalized.subclass { |key| key.kind_of?(String) ? key.to_sym : key }
+  class Indifferent < Normalized
+
+    def initialize(hash={})
+      super hash
+    end
+
+    private
+
+    def normalize_key(key)
+      key.to_sym
+    end
+
+  end
 end

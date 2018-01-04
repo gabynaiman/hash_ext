@@ -101,4 +101,10 @@ describe Hash::Indifferent do
     hash[:x][:y][1].instance_of?(Hash).must_equal true
   end
 
+  it 'Marshal' do
+    hash = Hash::Indifferent.new 'a' => 1, b: 2
+
+    Marshal.load(Marshal.dump(hash)).must_equal hash
+  end
+
 end
