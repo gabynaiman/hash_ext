@@ -8,7 +8,7 @@ class Hash
     private
 
     def normalize_key(key)
-      key.to_sym
+      key.kind_of?(String) ? key.to_sym : key
     end
 
   end
