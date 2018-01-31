@@ -92,6 +92,14 @@ hash[:a] = 3
 hash.keys # => [:a, :b, :c]
 ```
 
+### Nested
+```ruby
+hash = Hash::Nested.new
+
+hash[:level_1][:level_2][:level_3] = 'value'
+
+hash # => {level_1: {level_2: {level_3: 'value'}}}
+```
 
 ## Contributing
 
