@@ -68,4 +68,22 @@ describe Hash::Sorted do
     h.values.must_equal [2, 4, 1, 3]
   end
 
+  it 'Deep freeze' do
+    values = {a: 1, b: [{x: 1}, {x: 2}], c: {x: 1, y: {z: 2}}}
+    h = Hash::Sorted.asc(values) { |k,v| k }
+    h.deep_freeze
+
+    h.must_be :frozen?
+    h[:a].must_be :frozen?
+    h[:b].must_be :frozen?
+    h[:b][0].must_be :frozen?
+    h[:b][0][:x].must_be :frozen?
+    h[:b][1].must_be :frozen?
+    h[:b][1][:x].must_be :frozen?
+    h[:c].must_be :frozen?
+    h[:c][:x].must_be :frozen?
+    h[:c][:y].must_be :frozen?
+    h[:c][:y][:z].must_be :frozen?
+  end
+
 end

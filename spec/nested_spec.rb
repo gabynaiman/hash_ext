@@ -24,4 +24,15 @@ describe Hash::Nested do
     hash.must_equal level_1: {level_2: {level_3: 'test'}}
   end
 
+  it 'Deep freeze' do
+    hash = Hash::Nested.new
+    hash[:level_1][:level_2][:level_3] = 'test'
+
+    hash.deep_freeze
+
+    hash[:level_1].must_be :frozen?
+    hash[:level_1][:level_2].must_be :frozen?
+    hash[:level_1][:level_2][:level_3].must_be :frozen?
+  end
+
 end

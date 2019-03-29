@@ -3,6 +3,7 @@ class Hash
 
     extend Forwardable
     include Enumerable
+    include DeepFreezable
 
     def_delegators :@hash, :[], :[]=, :value?, :fetch, :values_at,
                            :key?, :include?, :empty?,

@@ -56,4 +56,21 @@ describe Hash::Accessible do
     hash.a[0].must_equal 3
   end
 
+  it 'Deep freeze' do
+    h = Hash::Accessible.new a: 1, b: [{x: 1}, {x: 2}], c: {x: 1, y: {z: 2}}
+    h.deep_freeze
+
+    h.must_be :frozen?
+    h.a.must_be :frozen?
+    h.b.must_be :frozen?
+    h.b[0].must_be :frozen?
+    h.b[0].x.must_be :frozen?
+    h.b[1].must_be :frozen?
+    h.b[1].x.must_be :frozen?
+    h.c.must_be :frozen?
+    h.c.x.must_be :frozen?
+    h.c.y.must_be :frozen?
+    h.c.y.z.must_be :frozen?
+  end
+
 end

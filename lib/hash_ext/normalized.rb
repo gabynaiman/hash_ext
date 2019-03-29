@@ -1,6 +1,8 @@
 class Hash
   class Normalized < Hash
 
+    include DeepFreezable
+
     def self.subclass(&block)
       Class.new(self) do
         define_method :initialize do |hash={}|

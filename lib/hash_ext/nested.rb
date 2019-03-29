@@ -1,6 +1,8 @@
 class Hash
   class Nested < Hash
 
+    include DeepFreezable
+
     def [](key)
       if key? key 
         super(key)
