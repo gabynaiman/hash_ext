@@ -75,6 +75,19 @@ describe Hash::Indifferent do
     other_hash.must_equal a: 3, b: 2
   end
 
+  it 'Dig' do
+    hash = Hash::Indifferent.new a: 1, b: [{x: 1}, {x: 2}], c: {x: 1, y: {z: 2}}
+
+    hash.dig('a').must_equal 1
+    hash.dig(:w).must_be_nil
+    
+    hash.dig('c', :y, 'z').must_equal 2
+    hash.dig('c', :w, 'z').must_be_nil
+    
+    hash.dig(:b, 0, :x).must_equal 1
+    hash.dig(:b, 3, :x).must_be_nil
+  end
+
   it 'Build from other hash' do
     hash = Hash::Indifferent.new 'a' => 1, b: 2
 

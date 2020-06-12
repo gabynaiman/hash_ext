@@ -53,6 +53,13 @@ class Hash
       super normalize_key(key), *args, &block
     end
 
+    def dig(*keys)
+      normalized_key = keys.map { |k| normalize_key(k) }
+      normalized_key.inject(self) do |target, key|
+        target ? target[key] : nil
+      end 
+    end
+
     def to_h
       each_with_object({}) do |(key, value), hash|
         hash[key] = value_to_h value
