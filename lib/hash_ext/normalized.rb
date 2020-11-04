@@ -73,7 +73,9 @@ class Hash
     end
 
     def normalize_value(value)
-      if value.kind_of? Hash
+      if value.is_a? self.class
+        value
+      elsif value.kind_of? Hash
         self.class.new value
       elsif value.kind_of? Array
         value.map { |v| normalize_value v }
