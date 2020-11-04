@@ -76,7 +76,7 @@ class Hash
       if value.is_a? self.class
         value
       elsif value.kind_of? Hash
-        self.class.new value
+        self.class.new value, &@normalization_block
       elsif value.kind_of? Array
         value.map { |v| normalize_value v }
       else

@@ -56,6 +56,16 @@ describe Hash::Normalized do
     h1[:c].must_equal 300
   end
 
+  it 'Custom instance normalization' do
+    h = Hash::Normalized.new(a: 100, b: 200) { |k| k.to_s.upcase }
+    h[:c] = {X: 1, y: {z: 2}}
+
+    h[:a].must_equal 100
+    h[:B].must_equal 200
+    h[:c][:x].must_equal 1
+    h[:c][:Y][:Z].must_equal 2
+  end
+
   it 'Deep freeze' do
     h = Insensitive.new a: 1, b: [{x: 1}, {x: 2}], c: {x: 1, y: {z: 2}}
     h.deep_freeze
