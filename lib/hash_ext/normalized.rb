@@ -54,8 +54,8 @@ class Hash
     end
 
     def dig(*keys)
-      normalized_key = keys.map { |k| normalize_key(k) }
-      normalized_key.inject(self) do |target, key|
+      normalized_keys = keys.map { |k| normalize_key(k) }
+      normalized_keys.inject(self) do |target, key|
         target ? target[key] : nil
       end 
     end
