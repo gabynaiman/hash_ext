@@ -1,7 +1,7 @@
 require 'minitest_helper'
 
 describe Hash::Indifferent do
-  
+
   it 'Get and Set' do
     hash = Hash::Indifferent.new
 
@@ -33,7 +33,7 @@ describe Hash::Indifferent do
 
     hash.key?(:a).must_equal true
     hash.key?('a').must_equal true
-    
+
     hash.key?(:b).must_equal true
     hash.key?('b').must_equal true
 
@@ -80,10 +80,10 @@ describe Hash::Indifferent do
 
     hash.dig('a').must_equal 1
     hash.dig(:w).must_be_nil
-    
+
     hash.dig('c', :y, 'z').must_equal 2
     hash.dig('c', :w, 'z').must_be_nil
-    
+
     hash.dig(:b, 0, :x).must_equal 1
     hash.dig(:b, 3, :x).must_be_nil
   end

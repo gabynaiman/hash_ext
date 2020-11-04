@@ -57,7 +57,7 @@ class Hash
       normalized_keys = keys.map { |k| normalize_key(k) }
       normalized_keys.inject(self) do |target, key|
         target ? target[key] : nil
-      end 
+      end
     end
 
     def to_h

@@ -1,11 +1,11 @@
 require 'minitest_helper'
 
 describe Hash::Normalized do
-  
+
   Insensitive = Hash::Normalized.subclass { |key| key.to_s.downcase }
 
   it 'Case insensitive' do
-    hash = Insensitive.new 
+    hash = Insensitive.new
     hash["A"] = 1
     hash[:B] = 2
 
@@ -19,7 +19,7 @@ describe Hash::Normalized do
   it 'Merge' do
     h1 = Insensitive.new a: 100, b: 200
     h2 = Insensitive.new B: 254, c: 300
-    m = h1.merge h2 
+    m = h1.merge h2
 
     m[:a].must_equal 100
     m[:b].must_equal 254

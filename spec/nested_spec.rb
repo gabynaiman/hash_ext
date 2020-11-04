@@ -15,7 +15,7 @@ describe Hash::Nested do
 
     hash[:key].must_equal 'value'
   end
-  
+
   it 'Allow set nested hash levels' do
     hash = Hash::Nested.new
 

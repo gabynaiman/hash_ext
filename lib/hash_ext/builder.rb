@@ -1,6 +1,6 @@
 class Hash
   class Builder
-    
+
     def initialize
       @hash = {}
       @scopes = []

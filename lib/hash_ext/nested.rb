@@ -4,7 +4,7 @@ class Hash
     include DeepFreezable
 
     def [](key)
-      if key? key 
+      if key? key
         super(key)
       else
         self[key] = Nested.new

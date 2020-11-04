@@ -1,7 +1,7 @@
 require 'minitest_helper'
 
 describe Hash::Builder do
-  
+
   it 'Build' do
     hash = Hash::Builder.build do |h|
       h.a 1
@@ -14,10 +14,10 @@ describe Hash::Builder do
       end
     end
 
-    hash.must_equal a: 1, 
-                    b: true, 
+    hash.must_equal a: 1,
+                    b: true,
                     c: {
-                      d: :abc, 
+                      d: :abc,
                       e: {
                         f: ['x', 'y']
                       }

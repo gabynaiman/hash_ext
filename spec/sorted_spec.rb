@@ -8,7 +8,7 @@ describe Hash::Sorted do
     hash[:d] = 3
     hash[:b] = 4
   end
-  
+
   it 'Ascending by key' do
     hash = Hash::Sorted.asc { |k,v| k }
     fill hash

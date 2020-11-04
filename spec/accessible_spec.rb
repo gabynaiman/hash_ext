@@ -1,7 +1,7 @@
 require 'minitest_helper'
 
 describe Hash::Accessible do
-  
+
   it 'Get and Set' do
     hash = Hash::Accessible.new
 
@@ -34,7 +34,7 @@ describe Hash::Accessible do
     hash.a = {}
     hash.a.must_equal Hash.new
 
-    hash.a.b = 1 
+    hash.a.b = 1
     hash.a.c = 2
     hash.d = {}
 
@@ -44,13 +44,13 @@ describe Hash::Accessible do
     hash[:a][:b].must_equal 1
   end
 
-  it 'Nested array post initialization' do 
+  it 'Nested array post initialization' do
     hash = Hash::Accessible.new
 
     hash.a = []
     hash.a.must_equal []
     hash[:a].must_equal []
-    
+
     hash.a << 3
     hash.a.size.must_equal 1
     hash.a[0].must_equal 3

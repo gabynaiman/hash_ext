@@ -7,12 +7,12 @@ class Hash
 
     def_delegators :@hash, :[], :[]=, :value?, :fetch, :values_at,
                            :key?, :include?, :empty?,
-                           :delete, :delete_if, :clear, 
+                           :delete, :delete_if, :clear,
                            :merge, :merge!, :update, :store, :replace,
                            :count, :size, :length,
                            :==, :eql, :hash
-    
-    def_delegators :to_h, :to_a, :to_s, :inspect, 
+
+    def_delegators :to_h, :to_a, :to_s, :inspect,
                           :select, :reject, :flatten,
                           :as_json, :to_json
 
@@ -56,7 +56,7 @@ class Hash
     attr_reader :direction, :sort_criteria
 
     class << self
-    
+
       def ascending(hash={}, &sort_criteria)
         new hash, :asc, &sort_criteria
       end
