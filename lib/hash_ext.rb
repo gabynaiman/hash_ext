@@ -1,4 +1,5 @@
 require 'forwardable'
+require 'delegate'
 
 require_relative 'hash_ext/version'
 
