@@ -1,7 +1,7 @@
 # HashExt
 
 [![Gem Version](https://badge.fury.io/rb/hash_ext.svg)](https://rubygems.org/gems/hash_ext)
-[![Build Status](https://travis-ci.org/gabynaiman/hash_ext.svg?branch=master)](https://travis-ci.org/gabynaiman/hash_ext)
+[![CI](https://github.com/gabynaiman/hash_ext/actions/workflows/ci.yml/badge.svg)](https://github.com/gabynaiman/hash_ext/actions/workflows/ci.yml)
 [![Coverage Status](https://coveralls.io/repos/gabynaiman/hash_ext/badge.svg?branch=master)](https://coveralls.io/r/gabynaiman/hash_ext?branch=master)
 [![Code Climate](https://codeclimate.com/github/gabynaiman/hash_ext.svg)](https://codeclimate.com/github/gabynaiman/hash_ext)
 
